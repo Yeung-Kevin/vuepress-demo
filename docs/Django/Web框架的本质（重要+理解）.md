@@ -21,6 +21,6 @@ while 1:
     conn.close()
 ```
 
-![An image](/Django/Web框架的本质（重要+理解）/未标题-1.png)
+![An image](/vuepress-demo/Django/Web框架的本质（重要+理解）/未标题-1.png)
 
 <img :src="$withBase('/Django/Web框架的本质（重要+理解）/未标题-1.png')" alt="foo">
