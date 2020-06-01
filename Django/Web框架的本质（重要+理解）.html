@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Web框架的本质（重要+理解） | Kevin-Blog</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/vuepress-demo/logo.png">
+    <meta name="description" content="">
+    <meta name="author" content="Kevin">
+    <meta name="keywords" content="Python, Django, Web 笔记">
+    <link rel="preload" href="/vuepress-demo/assets/css/0.styles.ed1b3393.css" as="style"><link rel="preload" href="/vuepress-demo/assets/js/app.396859ca.js" as="script"><link rel="preload" href="/vuepress-demo/assets/js/5.90cebc8b.js" as="script"><link rel="preload" href="/vuepress-demo/assets/js/2.cb5d393a.js" as="script"><link rel="preload" href="/vuepress-demo/assets/js/8.ed1ccfed.js" as="script"><link rel="prefetch" href="/vuepress-demo/assets/js/10.ad51d4ed.js"><link rel="prefetch" href="/vuepress-demo/assets/js/11.836dc6cf.js"><link rel="prefetch" href="/vuepress-demo/assets/js/12.9bd2965b.js"><link rel="prefetch" href="/vuepress-demo/assets/js/3.428aed04.js"><link rel="prefetch" href="/vuepress-demo/assets/js/4.804e0803.js"><link rel="prefetch" href="/vuepress-demo/assets/js/6.01ae5c6f.js"><link rel="prefetch" href="/vuepress-demo/assets/js/7.42e3c488.js"><link rel="prefetch" href="/vuepress-demo/assets/js/9.72f70682.js">
+    <link rel="stylesheet" href="/vuepress-demo/assets/css/0.styles.ed1b3393.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuepress-demo/" class="home-link router-link-active"><img src="/vuepress-demo/logo.png" alt="Kevin-Blog" class="logo"> <span class="site-name can-hide">Kevin-Blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Django" class="dropdown-title"><span class="title">Django</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-demo/Django/" class="nav-link router-link-active">
+  Django
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><span class="title">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-demo/Python/" class="nav-link">
+  Python
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Django" class="dropdown-title"><span class="title">Django</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-demo/Django/" class="nav-link router-link-active">
+  Django
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Python" class="dropdown-title"><span class="title">Python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vuepress-demo/Python/" class="nav-link">
+  Python
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Django</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/vuepress-demo/Django/" aria-current="page" class="sidebar-link">Django 首页</a></li><li><a href="/vuepress-demo/Django/Web框架的本质（重要+理解）.html" class="active sidebar-link">Web框架的本质（重要+理解）</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuepress-demo/Django/Web框架的本质（重要+理解）.html#编程的三部分-使用数据-存储数据-展示数据" class="sidebar-link">编程的三部分: 使用数据 存储数据 展示数据</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="编程的三部分-使用数据-存储数据-展示数据"><a href="#编程的三部分-使用数据-存储数据-展示数据" class="header-anchor">#</a> 编程的三部分: 使用数据 存储数据 展示数据</h2> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> socket
+
+sk <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
+sk<span class="token punctuation">.</span>bind<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+sk<span class="token punctuation">.</span>listen<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    conn<span class="token punctuation">,</span> addr <span class="token operator">=</span> sk<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    data <span class="token operator">=</span> conn<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">2048</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">b'HTTP/1.1 200 OK\r\n\r\n'</span><span class="token punctuation">)</span>  <span class="token comment"># 因为要遵循HTTP协议，所以要在回复消息之前先发送状态行消息 -&gt; 这里就相当于使用 socket 发送文件的例子中的报头（即：接收文件前要知道文件的名称/大小/类型，才可以开始接收文件，如果不懂的就看回 socket 中的报头）</span>
+    conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">b'&lt;h1&gt;Hello&lt;/h1&gt;'</span><span class="token punctuation">)</span>
+    conn<span class="token punctuation">.</span>send<span class="token punctuation">(</span><span class="token string">b'&lt;a href=&quot;http://www.baidu.com&quot;&gt;baidu&lt;/a&gt;'</span><span class="token punctuation">)</span>
+    conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="/vuepress-demo/Django/Web%E6%A1%86%E6%9E%B6%E7%9A%84%E6%9C%AC%E8%B4%A8%EF%BC%88%E9%87%8D%E8%A6%81+%E7%90%86%E8%A7%A3%EF%BC%89/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png" alt="An image"></p> <img src="/vuepress-demo/Django/Web框架的本质（重要+理解）/未标题-1.png" alt="foo"></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2020年6月1日 14:22</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/vuepress-demo/Django/" class="prev router-link-active">
+        Django 首页
+      </a></span> <!----></p></div>  <!----></main></div><div class="global-ui"><!----></div></div>
+    <script src="/vuepress-demo/assets/js/app.396859ca.js" defer></script><script src="/vuepress-demo/assets/js/5.90cebc8b.js" defer></script><script src="/vuepress-demo/assets/js/2.cb5d393a.js" defer></script><script src="/vuepress-demo/assets/js/8.ed1ccfed.js" defer></script>
+  </body>
+</html>
